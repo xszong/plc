@@ -1,0 +1,33 @@
+上升沿和下降沿
+//R_TRIG_1(CLK:= M1 ,Q=> M2 );
+//;F_TRIG_1(CLK:= M10 ,Q=> M20 );
+
+//M2:=LDP( 1 , M1 );
+//M20:=LDF(1 , M10 );
+上升沿和下降沿
+IF  NOT M100 AND M1  THEN//上升沿
+	 M2 := 1 ;
+	ELSE
+	M2:=0  ;
+END_IF;
+
+
+
+IF   M200 AND NOT M10  THEN//下降沿
+	M20 := 1 ;
+	ELSE
+	M20:=0  ;
+END_IF;
+
+
+IF  M2=1  THEN
+	D0:=D0+1;
+END_IF;
+
+
+IF  M20=1  THEN
+	D01:=D01+1;
+END_IF;
+
+M100:=M1;
+M200:=M10;
