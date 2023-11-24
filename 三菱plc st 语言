@@ -1,0 +1,341 @@
+上升沿和下降沿
+//R_TRIG_1(CLK:= M1 ,Q=> M2 );
+//;F_TRIG_1(CLK:= M10 ,Q=> M20 );
+
+//M2:=LDP( 1 , M1 );
+//M20:=LDF(1 , M10 );
+上升沿和下降沿
+IF  NOT M100 AND M1  THEN//上升沿
+	 M2 := 1 ;
+	ELSE
+	M2:=0  ;
+END_IF;
+
+
+
+IF   M200 AND NOT M10  THEN//下降沿
+	M20 := 1 ;
+	ELSE
+	M20:=0  ;
+END_IF;
+
+
+IF  M2=1  THEN
+	D0:=D0+1;
+END_IF;
+
+
+IF  M20=1  THEN
+	D01:=D01+1;
+END_IF;
+
+M100:=M1;
+M200:=M10;
+
+
+//OUT( TRUE , M123 );
+//MOV( ?BOOL_EN? , ?ANY16_s? , ?ANY16_d? );
+//ALT( SM412 , Y16 );
+CASE  D1122  OF
+	 1:
+	MOV( 1 , 01011, K4Y0);
+	MOV( 1 , K4Y0 , D222 );;
+	 2:
+	 MOV( 1 , 02, K4Y0); ;
+	 3:
+	 MOV( 1 , 03 , K4Y0); ;
+	 4:
+	 MOV( 1 , 04 , K4Y0); ;
+	
+		ELSE
+		 
+		 MOV( 1 , H0 , K4Y0); ;
+	
+END_CASE;
+
+FOR  D0 := 1 TO  5 BY 1   DO
+	Y11:=1;
+
+
+IF(D100Z0>=D1002Z0-10)AND(D100Z0<=D1002Z0+10)THEN
+	Y0Z0:=1;
+	ELSE
+	Y0Z0:=0;
+END_IF;
+
+END_FOR;
+
+INC( 1 , Z0);
+END_FOR;
+RST( 1, Z0);
+
+D322:E:=123.22-12.22;
+DEADD(SM400 , 12.11 , 1211111111.11 , D324:E);
+
+INT2UDINT( SM400, D322, D326 );
+
+OUT( M1 AND  NOT M2 AND NOT M3 AND NOT M4 AND NOT M5 AND NOT M6 AND M12, Y17);
+RST( 1, D1500
+);
+
+
+
+M166:=(D301.0 OR D301.1 OR D301.2 OR D301.3 OR D301.4 OR D301.5
+OR D301.6 OR D301.7 OR D301.8 OR  D301.9 
+OR D301.A OR D301.B OR D301.C
+OR D301.D OR D301.E OR D301.F)AND SM413;
+
+
+M166:=( M1000 OR M1001 OR M1002 OR M1003 OR M1004 OR M1005
+OR M1006 OR M1007 OR  M1008 
+OR M1009 OR M1010 OR M1011 OR M1012
+OR M1013 OR M1014 OR M1015)AND SM413;
+
+
+M166:=( M1000 OR M1001 OR M1002 OR M1003 OR M1004 OR M1005
+OR M1006 OR M1007 OR  M1008 
+OR M1009 OR M1010 OR M1011 OR M1012
+OR M1013 OR M1014 OR M1015)AND SM413;
+
+
+SFLP( M166 , K1 , K4M1000 );
+
+
+
+M166:=( M1000
+OR M1001 
+OR M1002 
+OR M1003 
+OR M1004 
+OR M1005
+OR M1006 
+OR M1007 
+OR  M1008 
+OR M1009 
+OR M1010 
+OR M1011 
+OR M1012
+OR M1013 
+OR M1014 
+OR M1015)
+AND SM413;
+
+
+
+	IF D0 = 100  THEN
+		 Y17:= TRUE ;
+		ELSE
+		 Y17:= FALSE ;
+	END_IF ;
+
+
+DECO( 1 , D200, K5, M1000 );
+
+
+INCP(
+(M1000
+OR M1001 
+OR M1002 
+OR M1003 
+OR M1004 
+OR M1005
+OR M1006 
+OR M1007 AND M100
+OR  M1008 
+OR M1009 
+OR M1010 
+OR M1011 
+OR M1012
+OR M1013 
+OR M1014 
+OR M1015
+)
+AND SM413, D200 );
+
+
+(*IF  ?条件式?  THEN
+	 ?执行语句? ;
+	ELSE
+	 ?执行语句? ;
+ 
+ FOR  wIndex0 := 0  TO  10  BY  1  DO //数据相加 数组1和数组0 的数据位组相差10
+	 wArray0 [wIndex0]:= wArray1 [wIndex0 + 10 ];
+	 Y17:=SM413;
+END_FOR;
+
+WHILE  bFlag1 AND wValue4<=100 DO//有且两个条件相同方能接通 内部条件完成即可跳转
+	 wValue4:= wValue4+1 ;
+	 Y16:= SM413;
+END_WHILE;
+
+wValue5:=0;
+REPEAT
+ wValue5 := wValue5 +1 ;
+ Y15:= SM413;
+	UNTIL  bFlag1 OR ( wValue5 >= 10 )
+END_REPEAT;//满足条件bflag等于true或者wvalue5 等于10的时候跳出该循环 
+
+END_IF;
+
+*)
+
+FOR  wIndex0 := 0  TO  21  BY  1  DO //数据相加 数组1和数组0 的数据位组相差10
+	wArray2 [ iw1,iw1]:=
+	wArray1 [iw1,iw1] + wArray0 [iw1,iw1 ] ;
+	Y17:=SM413;
+	iw1 := iw1+ 1;
+END_FOR;
+
+iw1:=0;
+
+OUT_T( M0 AND NOT T12 , T11 , K11 );
+OUT_T( M0 AND NOT T12 , T12 , K22 );
+
+OUT( T11 AND NOT T12 , M2);
+
+IF  NOT M2 AND M3  THEN
+
+//_(:з」∠ D4是最大值
+IF  Z0 = K101             THEN  MOV( 1, K0 , Z0 );     END_IF; 
+ IF D1000Z0 >= D4   THEN   MOV( 1, D1000Z0 , D4 ) ; MOV( 1 , Z0 ,D6 ) ;END_IF;//D6是指第几个寄存器存放最大的数据，d4是最大值的数据
+ 	  Z0:=Z0+1;
+END_IF;
+
+
+
+IF  NOT M2 AND M3  THEN
+
+	//_(:з」∠ D2是最小值
+IF  Z1 = K101             THEN  MOV( 1, K0 , Z1 );     END_IF; 
+		
+			
+IF D1000Z1 <= D2   THEN   MOV( 1, D1000Z1 , D2 ) ;MOV( 1 , Z1 ,D8 ) ;END_IF;//D8是子第几个寄存器存放最小的数据，d2是最小值的数据
+ Z1:=Z1+1;
+ 
+END_IF;
+
+
+冒泡法
+ FOR  wi := 1  TO  99  BY  1  DO//外层循环  n-1趟
+ FOR  wj := 1  TO  99  BY  1 DO// 每一趟的排序
+ IF  ARR[wj]>ARR[wj+1]  THEN//两个相邻元素的比较
+	  wtemp:=ARR[wj];
+	  arr[wj]:=ARR[wj+1];
+	  ARR[wj+1]:=wtemp ;
+	 
+ END_IF;		                   ;  	 END_FOR;;         END_FOR;
+
+disereal:=bREAL*bREAL-4*aREAL*cREAL ;
+//计算判别式
+IF  disereal > 0  THEN//大于0 有两个实数解
+	x1real:= -bREAL+SQRT( disereal )/(2*aREAL);
+	x2real:= -bREAL-SQRT( disereal )/(2*aREAL);
+	ELSIF  disereal=0 THEN
+	 x1real:= (bREAL/(2*aREAL))*-1;
+	 x2real:= x1real;
+	 
+	 ELSE
+	 x1real:=0;
+	 x2real:=0;
+	
+	
+	
+END_IF;
+
+
+
+FOR  D0 := 0  TO  3  BY  1  DO //数据相加 数组1和数组0 的数据位组相差10
+
+	DECO( 1 , D200Z0, K5, M1000Z2 );
+	Z0:=Z0+2;
+	Z2:=Z2+100;
+
+
+	
+	
+
+END_FOR;
+
+Z0:=0;
+
+Z2:=0;
+
+
+
+
+INCP(
+(M1000
+OR M1001 
+OR M1002 
+OR M1003 
+OR M1004 
+OR M1005
+OR M1006 
+OR M1007 AND M100
+OR  M1008 
+OR M1009 
+OR M1010 
+OR M1011 
+OR M1012
+OR M1013 
+OR M1014 
+OR M1015
+)
+AND SM413, D200 );
+
+INCP(
+(M1100
+OR M1101 
+OR M1102 
+OR M1103 
+OR M1104 
+OR M1105
+OR M1106 
+OR M1107 AND M100
+OR  M1108 
+OR M1109 
+OR M1110 
+OR M1111 
+OR M1112
+OR M1113 
+OR M1114 
+OR M1115
+)
+AND SM413, D202 );
+
+INCP(
+(M1200
+OR M1201 
+OR M1202 
+OR M1203 
+OR M1204 
+OR M1205
+OR M1206 
+OR M1207 AND M100
+OR  M1208 
+OR M1209 
+OR M1210 
+OR M1211 
+OR M1212
+OR M1213 
+OR M1214 
+OR M1215
+)
+AND SM413, D204 );
+
+
+
+
+IF  补位置减[w_i]<当前位置[w_j] AND 当前位置[w_i]<补位置加[w_i] THEN
+	  位置灯[w_i]:=1 ;
+	ELSE
+	  位置灯[w_i]:=0 ;
+END_IF; 
+w_i:=w_i+1;
+w_j:=w_i+1;
+
+//END_FOR;	 
+	 w_i:=0;
+	 w_j:=0;
+	 	 
+
