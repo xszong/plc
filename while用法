@@ -1,0 +1,5 @@
+
+WHILE  bFlag1 AND wValue4<=100 DO//有且两个条件相同方能接通 内部条件完成即可跳转
+	 wValue4:= wValue4+1 ;
+	 Y16:= SM413;
+END_WHILE;
