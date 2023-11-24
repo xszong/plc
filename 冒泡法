@@ -1,0 +1,26 @@
+冒泡法
+ FOR  wi := 1  TO  99  BY  1  DO//外层循环  n-1趟
+ FOR  wj := 1  TO  99  BY  1 DO// 每一趟的排序
+ IF  ARR[wj]>ARR[wj+1]  THEN//两个相邻元素的比较
+	  wtemp:=ARR[wj];
+	  arr[wj]:=ARR[wj+1];
+	  ARR[wj+1]:=wtemp ;
+	 
+ END_IF;		                   ;  	 END_FOR;;         END_FOR;
+
+disereal:=bREAL*bREAL-4*aREAL*cREAL ;
+//计算判别式
+IF  disereal > 0  THEN//大于0 有两个实数解
+	x1real:= -bREAL+SQRT( disereal )/(2*aREAL);
+	x2real:= -bREAL-SQRT( disereal )/(2*aREAL);
+	ELSIF  disereal=0 THEN
+	 x1real:= (bREAL/(2*aREAL))*-1;
+	 x2real:= x1real;
+	 
+	 ELSE
+	 x1real:=0;
+	 x2real:=0;
+	
+	
+	
+END_IF;
