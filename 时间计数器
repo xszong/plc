@@ -1,0 +1,6 @@
+
+Y0:=FALSE;
+OUT_T(M0,TCO,K10);
+IF TS0=1 THEN
+    Y0:=1;
+END_IF;
