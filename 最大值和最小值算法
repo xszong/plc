@@ -1,0 +1,21 @@
+
+IF  NOT M2 AND M3  THEN
+
+//_(:з」∠ D4是最大值
+IF  Z0 = K101             THEN  MOV( 1, K0 , Z0 );     END_IF; 
+ IF D1000Z0 >= D4   THEN   MOV( 1, D1000Z0 , D4 ) ; MOV( 1 , Z0 ,D6 ) ;END_IF;//D6是指第几个寄存器存放最大的数据，d4是最大值的数据
+ 	  Z0:=Z0+1;
+END_IF;
+
+
+
+IF  NOT M2 AND M3  THEN
+
+	//_(:з」∠ D2是最小值
+IF  Z1 = K101             THEN  MOV( 1, K0 , Z1 );     END_IF; 
+		
+			
+IF D1000Z1 <= D2   THEN   MOV( 1, D1000Z1 , D2 ) ;MOV( 1 , Z1 ,D8 ) ;END_IF;//D8是子第几个寄存器存放最小的数据，d2是最小值的数据
+ Z1:=Z1+1;
+ 
+END_IF;
