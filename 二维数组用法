@@ -1,0 +1,8 @@
+FOR  wIndex0 := 0  TO  21  BY  1  DO //数据相加 数组1和数组0 的数据位组相差10
+	wArray2 [ iw1,iw1]:=
+	wArray1 [iw1,iw1] + wArray0 [iw1,iw1 ] ;
+	Y17:=SM413;
+	iw1 := iw1+ 1;
+END_FOR;
+
+iw1:=0;
