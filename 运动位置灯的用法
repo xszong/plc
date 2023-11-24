@@ -1,0 +1,12 @@
+IF  补位置减[w_i]<当前位置[w_j] AND 当前位置[w_i]<补位置加[w_i] THEN
+	  位置灯[w_i]:=1 ;
+	ELSE
+	  位置灯[w_i]:=0 ;
+END_IF; 
+w_i:=w_i+1;
+w_j:=w_i+1;
+
+//END_FOR;	 
+	 w_i:=0;
+	 w_j:=0;
+	 	 
