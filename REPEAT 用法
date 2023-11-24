@@ -1,0 +1,7 @@
+REPEAT
+ wValue5 := wValue5 +1 ;
+ Y15:= SM413;
+	UNTIL  bFlag1 OR ( wValue5 >= 10 )
+END_REPEAT;//满足条件bflag等于true或者wvalue5 等于10的时候跳出该循环 
+
+END_IF;
