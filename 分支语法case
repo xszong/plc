@@ -1,0 +1,19 @@
+//OUT( TRUE , M123 );
+//MOV( ?BOOL_EN? , ?ANY16_s? , ?ANY16_d? );
+//ALT( SM412 , Y16 );
+CASE  D1122  OF
+	 1:
+	MOV( 1 , 01011, K4Y0);
+	MOV( 1 , K4Y0 , D222 );;
+	 2:
+	 MOV( 1 , 02, K4Y0); ;
+	 3:
+	 MOV( 1 , 03 , K4Y0); ;
+	 4:
+	 MOV( 1 , 04 , K4Y0); ;
+	
+		ELSE
+		 
+		 MOV( 1 , H0 , K4Y0); ;
+	
+END_CASE;
