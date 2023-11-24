@@ -1,0 +1,6 @@
+
+	IF D0 = 100  THEN
+		 Y17:= TRUE ;
+		ELSE
+		 Y17:= FALSE ;
+	END_IF ;
