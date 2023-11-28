@@ -1,0 +1,22 @@
+// 手动移动速度写入 qd77
+FOR  D0 := 1  TO  16  BY  1  DO
+	dmov( 1, R7000Z0 , U0\G4318Z8 );
+	Z0:=k2;
+	Z8:=k100;
+	
+END_FOR;
+Z0:=0;
+Z8:=0;
+
+//手动输入移动速度写入 qd75 含6个轴
+FOR  D0 := 1  TO  6  BY  1  DO
+	 FOR  D2 := 1  TO  4  BY  1  DO
+	 	 
+	 	 DMOV( 1 , R7032Z8 , U2Z10\G1518Z7 );
+	 	 Z7:=Z7+K100;
+	 	 Z8:=Z8+K2;
+	 END_FOR;
+	 Z10:=Z10+K2;
+	 Z7:=K0;
+END_FOR;
+Z8:=0;Z10:=0;
