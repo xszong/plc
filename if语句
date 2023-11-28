@@ -4,3 +4,25 @@
 		ELSE
 		 Y17:= FALSE ;
 	END_IF ;
+、、、、、、、、、、、、、、、、、、、、、、、、、、
+
+K4Y0:=0;
+(*上升沿执行*)
+IF NOT M100 AND M1 THEN
+M2 := 1 ;
+ELSE
+M2:=0 ;
+END_IF;
+IF M2=1 THEN
+D0:=D0+1;
+END_IF;
+M100:=M1;
+(*IF条件语句执行*)
+IF D0 = 1 THEN Y0 := 1;
+     ELSE IF D0 = 2 THEN Y1 := 1;
+     ELSE IF D0 = 3 THEN Y2 := 1;
+     ELSE IF D0 = 4 THEN Y3 := 1;
+     ELSE IF D0 = 5 THEN Y4 := 1;
+     ELSE Y5 := 1;   
+END_IF;END_IF;END_IF;END_IF;END_IF;
+
