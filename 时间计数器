@@ -4,3 +4,57 @@ OUT_T(M0,TCO,K10);
 IF TS0=1 THEN
     Y0:=1;
 END_IF;
+
+标签名
+i_tmInterval
+o_bOutputSignal0
+o_bOutputSignal1
+bResult
+wInterval
+tdTimer0
+tdTimer1
+
+数据类型
+位
+位
+位
+字[有符号]
+定时器
+定时器
+时间
+
+类
+VAR
+VAR
+VAR
+VAR
+VAR
+VAR
+VAR
+
+注释
+输出信号0 (位), 初始值：TRUE
+输出信号1 (位), 初始值：TRUE
+定时器执行执行eno
+低速定时器设定值
+定时器0
+定时器1
+切换间隔 (时间)
+
+(* 使输出信号0、1交互闪烁。(触发器梯形图) *)
+(* 求低速定时器的设定值。 *)
+
+wInterval := TIME_TO_INT(i_tmInterval) / 100;
+
+(* 定时器1为OFF时，定时器0在设置时间ms后置ON *)
+bResult := OUT_T(NOT tdTimer1.S, tdTimer0, wInterval);
+
+(* 定时器0从OFF变为ON时，定时器1在设置时间ms后置ON *)
+bResult := OUT_T(tdTimer0.S, tdTimer1, wInterval);
+
+(* 定时器0为ON时，输出信号0置ON *)
+o_bOutputSignal0 := tdTimer0.S;
+
+(* 定时器0为OFF时，输出信号1置ON *)
+o_bOutputSignal1 := NOT tdTimer0.S;
+
