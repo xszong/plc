@@ -74,3 +74,17 @@ o_bOutputSignal0 := tdTimer0.S;
 (* 定时器0为OFF时，输出信号1置ON *)
 o_bOutputSignal1 := NOT tdTimer0.S;
 
+//下面是我放弃了时间计数器，用寄存器写的程序主要的功能是想要M1触发的时候形成一个保持的状态，那么这个状态将持续大概五十秒的时间，M1就会再次变成false；
+
+M1:=M1;
+M0:=SM412 AND M1 ;
+//我的本意是触发时间的时候加个延时触发啥的替代 这个玩意 也就是里面触发持续一段时间的触发
+IF  LDP( 1 , M0 )=1 THEN
+	
+
+
+FOR  D0:= 1  TO  1  BY  1  DO
+	 D100:= D100+1 ;
+	 IF  D100> 50 THEN  D100:=0; M1:=0;END_IF;
+END_FOR;END_IF;
+
