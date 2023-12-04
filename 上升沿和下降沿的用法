@@ -2,6 +2,8 @@
 //R_TRIG_1(CLK:= M1 ,Q=> M2 );
 //;F_TRIG_1(CLK:= M10 ,Q=> M20 );
 
+PLS(bFlag0, bResult0);
+
 //M2:=LDP( 1 , M1 );
 //M20:=LDF(1 , M10 );
 上升沿和下降沿
