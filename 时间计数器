@@ -41,6 +41,18 @@ IF td1sTimer.S THEN (* 1秒后 *)
 	RST(TRUE, td1sTimer.S);
 END_IF;
 
+OUT_T(G_bOperatingStatus, td1sTimer, 10)：这行代码使用 OUT_T 函数设置了一个定时器 td1sTimer 的设定值为 1000ms（1秒），并将定时器的输出结果存储在变量 bResult 中。
+IF td1sTimer.S THEN：如果定时器的输出 td1sTimer.S 为真，表示定时器达到了设定值（经过了1秒）。
+G_tmTime := G_tmTime + T#1000ms;：将运转时间（以 TIMER 型式）增加 1000ms（1秒）。
+IF G_tmTime < T#0ms THEN：如果运转时间发生溢出，即超过了 TIMER 类型的最大值。
+G_tmTime := T#0ms;：将运转时间重置为 0ms，即清零。
+G_dSeconds := G_dSeconds + 1;：将运转时间（以秒为单位）增加 1。
+IF G_dSeconds >= 86400 THEN：如果运转时间达到了 24 小时（86400 秒）。
+G_dSeconds := 0;：将运转时间重置为 0，即清零。
+RST(TRUE, td1sTimer.N);：复位定时器的当前值为 0。
+RST(TRUE, td1sTimer.S);：复位定时器的触点状态为 OFF。
+其中，td1sTimer.N 表示定时器的当前值，td1sTimer.S 表示定时器的触点状态（ON/OFF）。这两个变量用于控制和监视定时器的状态和时间。
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
