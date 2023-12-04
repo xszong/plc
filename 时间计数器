@@ -14,6 +14,36 @@ IF tmData0 >= T#30s THEN
 	RETURN;
 END_IF;
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+局部标签
+bResult	位	VAR			定时器执行的eno（位）
+td1sTimer	定时器	VAR			1秒计测试定时器（定时器）
+	全局标签				
+G_bOperatingStatus	位	VAR_GLOBAL				运转状态(位)
+G_tmTime	时间	VAR_GLOBAL				运转时间总（时间）
+G_dSeconds	双字[有符号]	VAR_GLOBAL				运转时间（双字有符号）
+
+(* 按秒对运转时间进行计数。 *)
+OUT_T(G_bOperatingStatus, td1sTimer, 10); (* 定时器的设定值1000ms *)
+IF td1sTimer.S THEN (* 1秒后 *)
+	(* 运转时间 （TIMER型）计时 *)
+	G_tmTime := G_tmTime + T#1000ms;
+	IF G_tmTime < T#0ms THEN (* 发生溢出时 *)
+		G_tmTime := T#0ms; (* 清零 *)
+	END_IF;
+	(* 运转时间 （以秒为单位）计时 *)
+	G_dSeconds := G_dSeconds +1;
+	IF G_dSeconds >= 86400 THEN
+		G_dSeconds := 0; (* 第24小时清零 *)
+	END_IF;
+	(* 定时器的复位 （当前值：0，触点：OFF）*)
+	RST(TRUE, td1sTimer.N);
+	RST(TRUE, td1sTimer.S);
+END_IF;
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 M0:=SM412 AND M1 ;
