@@ -5,7 +5,14 @@ IF TS0=1 THEN
     Y0:=1;
 END_IF;
 
+tmData0 := T#30s;
 
+tmData0 := MUL_TIME(tmData0 + T#10ms, 2);
+
+IF tmData0 >= T#30s THEN
+	Y1:=1;
+	RETURN;
+END_IF;
 
 
 
