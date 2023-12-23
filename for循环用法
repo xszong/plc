@@ -3,3 +3,34 @@
 	 wArray0 [wIndex0]:= wArray1 [wIndex0 + 10 ];
 	 Y17:=SM413;
 END_FOR;
+
+
+
+
+IF iCounter >2  THEN
+	
+		
+		IF LocalStation15Outputs[8]  THEN
+			FOR iLoop := 0 TO 15 DO
+				CASE iLoop OF
+					0..7:
+						LocalStation15Outputs[iLoop]:=TRUE;
+					8..15:
+						LocalStation15Outputs[iLoop]:=FALSE;
+				END_CASE;
+			END_FOR;
+		
+		ELSE
+			FOR iLoop := 0 TO 15 DO
+				CASE iLoop OF
+					0..7:
+					LocalStation15Outputs[iLoop]:=FALSE;
+					8..15:
+					LocalStation15Outputs[iLoop]:=TRUE;
+				END_CASE;
+			END_FOR;
+		END_IF;
+		
+
+	iCounter:=0;
+END_IF;
