@@ -1,0 +1,41 @@
+FOR  D2 := 1  TO  16  BY  1  DO
+	 
+	 FOR  D0:= 1  TO  4  BY  1  DO
+		 
+		 IF  L250Z4=1  THEN
+			  D5000Z0:=D5384Z2 ;
+			 
+		 END_IF;
+		 Z4:=Z4+2;//Z0 是补抓数据每次加2 ， z2是定位数据每次也是加2，z4是当前值每次加2
+		 Z0:=Z0+2;	  
+	 END_FOR;
+	 Z2:=Z2+2;	 
+END_FOR;
+
+Z0:=0;
+Z2:=0;
+Z4:=0;
+
+
+D4:=0;
+
+FOR  D2 := 1  TO  16  BY  1  DO
+	 
+	 FOR  D0:= 1  TO  4  BY  1  DO
+		 
+		 IF  L250Z4=1  THEN
+			  D5000Z0:=D5384Z2 ;
+			 
+		 END_IF;
+		 Z4:=Z4+2;//Z0 是补抓数据每次加2 ， z2是定位数据每次也是加2，z4是当前值每次加2
+		 Z0:=Z0+2;	  
+	 END_FOR;
+	 Z0:=0;
+	 D4:=D4+8;
+	 Z0:=D4;
+	 Z2:=Z2+2;	 
+END_FOR;
+
+Z0:=0;
+Z2:=0;
+Z4:=0;
