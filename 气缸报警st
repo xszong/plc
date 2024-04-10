@@ -1,0 +1,101 @@
+气缸执行状态
+气缸前进中
+气缸后退中
+气缸在前进位
+气缸在后退位
+气缸进感应器
+气缸退感应器
+times1
+气缸前进超时
+气缸后退超时
+超时定时
+传感器异常
+
+字[有符号]
+位
+位
+位
+位
+位
+位
+时间
+位
+位
+时间
+位
+
+VAR_INPUT
+VAR_OUTPUT
+VAR_OUTPUT
+VAR_OUTPUT
+VAR_OUTPUT
+VAR_INPUT
+VAR_INPUT
+VAR
+VAR_OUTPUT
+VAR_OUTPUT
+VAR_INPUT
+VAR_OUTPUT
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+
+气缸前进超时:=0;
+气缸后退超时:=0;
+传感器异常:=0;
+
+
+//气缸线圈输出状态
+IF  TRUE  THEN
+	CASE  气缸执行状态  OF
+		0:
+	    气缸前进中:=0 ;
+	    气缸后退中 :=0 ;
+		1:
+		气缸前进中:=1 ;
+		气缸后退中 :=0 ;
+		2:
+		气缸前进中:=0 ;
+		气缸后退中 :=1 ;
+	END_CASE;
+
+END_IF;
+
+
+
+
+
+IF ( NOT 气缸进感应器 AND 气缸前进中 )
+	OR
+	( NOT 气缸退感应器 AND 气缸后退中 )
+	OR
+	(  气缸进感应器 AND 气缸退感应器 )
+	
+	THEN
+	times1:=times1 + t#1000ms ;
+	ELSE
+	times1:= t#0ms ;
+END_IF;
+
+IF  times1>= 超时定时  THEN
+	IF NOT 气缸进感应器 AND 气缸前进中   THEN
+		气缸前进超时:=1;
+	END_IF;
+	IF NOT 气缸退感应器 AND 气缸后退中   THEN
+		气缸后退超时:=1;
+	END_IF;
+	IF 气缸进感应器 AND 气缸退感应器  THEN
+		传感器异常:=1;
+	END_IF;
+	
+END_IF;
+
