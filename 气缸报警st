@@ -10,6 +10,10 @@ times1
 气缸后退超时
 超时定时
 传感器异常
+上升计时器
+
+
+
 
 字[有符号]
 位
@@ -23,6 +27,9 @@ times1
 位
 时间
 位
+位
+
+
 
 VAR_INPUT
 VAR_OUTPUT
@@ -36,18 +43,9 @@ VAR_OUTPUT
 VAR_OUTPUT
 VAR_INPUT
 VAR_OUTPUT
+VAR
 
 
-
-
-
-
-
-
-		
-		
-		
-		
 
 气缸前进超时:=0;
 气缸后退超时:=0;
@@ -73,6 +71,8 @@ END_IF;
 
 
 
+PLS(SM410, 上升计时器);
+
 
 IF ( NOT 气缸进感应器 AND 气缸前进中 )
 	OR
@@ -81,10 +81,16 @@ IF ( NOT 气缸进感应器 AND 气缸前进中 )
 	(  气缸进感应器 AND 气缸退感应器 )
 	
 	THEN
-	times1:=times1 + t#1000ms ;
+	IF  上升计时器  THEN
+	
+	
+	times1:=times1 + t#100ms ;
+	END_IF;
 	ELSE
 	times1:= t#0ms ;
 END_IF;
+
+
 
 IF  times1>= 超时定时  THEN
 	IF NOT 气缸进感应器 AND 气缸前进中   THEN
@@ -98,4 +104,5 @@ IF  times1>= 超时定时  THEN
 	END_IF;
 	
 END_IF;
+
 
