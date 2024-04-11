@@ -1,0 +1,83 @@
+局部变量
+标签名
+定位MVAR
+轴当前状态VAR_OUTPUT
+iiVAR
+输入
+iSVAR
+
+数据类型
+位(0..19)
+轴状态
+字[有符号]
+位
+字[有符号]
+
+类
+VAR
+VAR_OUTPUT
+VAR
+VAR_INPUT
+VAR
+
+结构体
+标签名
+w当前点位M
+数据类型
+字[有符号]
+
+程序
+
+
+//定位MVAR[iiVAR]:=TRUE;
+
+//iiVAR := 0;
+FOR iiVAR := 0 TO  15  BY  1  DO
+	
+	定位MVAR[iiVAR]:=FALSE;
+	IF  输入  THEN
+			 定位MVAR[iiVAR]:=TRUE;
+			 INC( SM400 , D0 );
+ // ?执行语句? ;
+	//	ELSE
+	//	 ?执行语句? ;
+	END_IF;
+	
+	//iiVAR := iiVAR +1;
+ 
+END_FOR;
+//结构体 mate
+//w当前点位M	字[有符号]
+
+// 局部变量 mate 
+//VAR	位(0..19)	定位MVAR  //定位m 是局部变量的16位数组  
+//VAR_OUTPUT	轴状态	轴当前状态VAR_OUTPUT//(轴状态调用的是结构体的mate date 也就是当前点位m)
+//VAR	字[有符号]	iiVAR
+//VAR_INPUT	位	输入
+//VAR	字[有符号]	iSVAR
+
+//局部变量的数组写入16个位 ，每一个位写入对应 结构体 ，结构体里面的 字 
+
+轴当前状态VAR_OUTPUT.w当前点位M.0:=定位MVAR[0];
+轴当前状态VAR_OUTPUT.w当前点位M.1:=定位MVAR[1];
+轴当前状态VAR_OUTPUT.w当前点位M.2:=定位MVAR[2];
+轴当前状态VAR_OUTPUT.w当前点位M.3:=定位MVAR[3];
+轴当前状态VAR_OUTPUT.w当前点位M.4:=定位MVAR[4];
+轴当前状态VAR_OUTPUT.w当前点位M.5:=定位MVAR[5];
+轴当前状态VAR_OUTPUT.w当前点位M.6:=定位MVAR[6];
+轴当前状态VAR_OUTPUT.w当前点位M.7:=定位MVAR[7];
+轴当前状态VAR_OUTPUT.w当前点位M.8:=定位MVAR[8];
+轴当前状态VAR_OUTPUT.w当前点位M.9:=定位MVAR[9];
+轴当前状态VAR_OUTPUT.w当前点位M.A:=定位MVAR[10];
+轴当前状态VAR_OUTPUT.w当前点位M.B:=定位MVAR[11];
+轴当前状态VAR_OUTPUT.w当前点位M.C:=定位MVAR[12];
+轴当前状态VAR_OUTPUT.w当前点位M.D:=定位MVAR[13];
+轴当前状态VAR_OUTPUT.w当前点位M.E:=定位MVAR[14];
+轴当前状态VAR_OUTPUT.w当前点位M.F:=定位MVAR[15];
+
+
+
+
+
+
+
